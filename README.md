@@ -2,6 +2,7 @@
 MyUniqueToken is an Ethereum smart contract that implements a simple ERC-20 token with additional functionality. The contract allows for the creation, transfer, and management of tokens. It also features ownership transfer and token burning capabilities.
 
 # Token Details
+
 Name: Ayush
 Symbol: MUTED
 Decimals: 18
