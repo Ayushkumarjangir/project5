@@ -7,7 +7,7 @@ Symbol: MUTED
 Decimals: 18
 Total Supply: 1000 MUTED
 # Functionality
-# Minting
+## Minting
 The contract owner can mint new tokens and allocate them to a specified address.
 
 # Burning
