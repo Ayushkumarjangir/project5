@@ -42,7 +42,7 @@ contract mytoken {
     }
 
     function mint(address _to, uint256 _amount) public onlyOwner {
-        require(_to != address(0), "Invalid address");
+        require(_to != address(0), "your address is Invalid");
         totalSupply += _amount;
         balanceOf[_to] += _amount;
         emit Mint(_to, _amount);
@@ -50,16 +50,25 @@ contract mytoken {
     }
 
     function burn(uint256 _amount) public {
-        require(balanceOf[msg.sender] >= _amount, "Insufficient balance");
+        require(balanceOf[msg.sender] >= _amount, "you do not have sufficient balance");
         balanceOf[msg.sender] -= _amount;
         totalSupply -= _amount;
         emit Transfer(msg.sender, address(0), _amount);
     }
 
     function transfer(address _to, uint256 _amount) public {
-        require(_to != address(0), "Invalid address");
-        require(balanceOf[msg.sender] >= _amount, "Insufficient balance");
+        require(_to != address(0), "your address is Invalid");
+        require(balanceOf[msg.sender] >= _amount, "you do not have sufficient balance");
         balanceOf[msg.sender] -= _amount;
         balanceOf[_to] += _amount;
         emit Transfer(msg.sender, _to, _amount);
     }
+    
+
+    function changeOwner(address _newOwner) public onlyOwner {
+        require(_newOwner != address(0), "your address is Invalid");
+        address _previousOwner = owner;
+        owner = _newOwner;
+        emit OwnershipTransferred(_previousOwner, _newOwner);
+    }
+}
